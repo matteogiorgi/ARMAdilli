@@ -1,0 +1,21 @@
+ENRICO 1
+Investigate whether Brent crude oil, heating oil, and natural gas prices share long‑run equilibrium relationships and short‑run dynamic interactions, and quantify the transmission of shocks across these energy markets.
+
+ENRICO 2
+Esiste una relazione dinamica e di lungo periodo tra Brent, Heating Oil e Natural Gas?
+E come si trasmettono gli shock tra questi mercati energetici?
+
+MATTIA 1
+In che modo le recenti crisi energetiche hanno alterato la trasmissione della volatilità e degli shock di prezzo tra il mercato del greggio (Brent), il gas naturale e l'heating oil?
+
+MATTEO 1
+Verificare se la dinamica congiunta delle principali commodities energetiche migliora la previsione a breve termine dei prezzi (o dei rendimenti) rispetto a modelli che trattano ogni serie separatamente.
+
+MATTEO 2
+Analizzare se esistono spillover informativi tra i prezzi delle principali commodities energetiche e se tali relazioni possono essere sfruttate per migliorare le previsioni a breve termine.
+
+MATTEO 3
+Investigare se le principali commodities energetiche presentano dinamiche interdipendenti e se modelli multivariati (es. VAR) sono in grado di sfruttare tali dipendenze per migliorare le previsioni 1-step ahead rispetto a modelli univariati.
+
+MATTEO 4
+Verificare se esistono relazioni di lungo periodo tra i prezzi delle principali commodities energetiche e se tali relazioni possono essere utilizzate per migliorare il forecasting a breve termine.
