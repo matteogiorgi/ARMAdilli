@@ -25,11 +25,11 @@ yfr_bad_data_threshold <- 0
 output_dir <- "output"
 plots_dir <- file.path(output_dir, "plots")
 data_dir <- file.path(output_dir, "data")
+logs_dir <- file.path(output_dir, "logs")
 run_timestamp <- format(Sys.time(), "%Y%m%d_%H%M%S")
 plots_file <- file.path(plots_dir, sprintf("plots_%s.pdf", run_timestamp))
 series_file <- file.path(data_dir, sprintf("brent_%s.csv", run_timestamp))
-
-
+log_file <- file.path(logs_dir, sprintf("console_%s.txt", run_timestamp))
 
 
 # -------------------------------------------------------------------
@@ -298,6 +298,17 @@ confint_with_warning_report <- function(model, model_label) {
 local({
     dir.create(plots_dir, recursive = TRUE, showWarnings = FALSE)
     dir.create(data_dir, recursive = TRUE, showWarnings = FALSE)
+    dir.create(logs_dir, recursive = TRUE, showWarnings = FALSE)
+
+    log_connection <- file(log_file, open = "wt")
+    sink(log_connection, split = TRUE)
+    on.exit(
+        {
+            sink()
+            close(log_connection)
+        },
+        add = TRUE
+    )
 
     grDevices::graphics.off()
     grDevices::pdf(plots_file)
@@ -460,6 +471,38 @@ local({
 
 
     # -------------------------------------------------------------------
+    # FORECAST
+
+    # Replica il blocco di forecasting presente in enrico_plus.R usando gli
+    # oggetti costruiti in questo script: ritorni_log al posto di ritorni1 e
+    # prezzi_petrolio come ultimo prezzo osservato da cui ricavare il forecast
+    # del livello.
+    # -------------------------------------------------------------------
+
+    forecast_garchfit_1step <- predict(modvolatilitygarch, n.ahead = 1)
+
+    last_price <- tail(prezzi_petrolio, 1)
+    mu_hat <- forecast_garchfit_1step$meanForecast[1]
+    sigma_hat <- forecast_garchfit_1step$standardDeviation[1]
+    price_forecast <- last_price * exp(mu_hat + 0.5 * sigma_hat^2)
+
+    # In fGarch, multi-step predict() with the default conditional MSE can fail
+    # for higher-order ARMA terms because of an indexing bug in the package code.
+    previsioni_garch <- predict(modvolatilitygarch, n.ahead = 4, mse = "uncond")
+
+    forecast_outputs <- list(
+        garchfit_1step = forecast_garchfit_1step,
+        garch_1step_mean = forecast_garchfit_1step$meanForecast,
+        garch_1step_sigma = forecast_garchfit_1step$standardDeviation,
+        price_forecast = price_forecast,
+        garch_4step_mean = previsioni_garch$meanForecast,
+        garch_4step_sigma = previsioni_garch$standardDeviation
+    )
+
+    print(forecast_outputs)
+
+
+    # -------------------------------------------------------------------
     # CHARACTERISTIC ROOTS
 
     # Calcola le radici del polinomio caratteristico del modello AR sui
@@ -477,4 +520,5 @@ local({
     # Complex roots in the characteristic polynomial imply cyclical dynamics.
     message(sprintf("Grafici salvati in '%s'.", plots_file))
     message(sprintf("Serie storica salvata in '%s'.", series_file))
+    message(sprintf("Output testuale salvato in '%s'.", log_file))
 })

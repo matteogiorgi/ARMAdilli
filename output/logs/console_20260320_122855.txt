@@ -1,0 +1,439 @@
+                 series
+nobs          4638.0000
+NAs              0.0000
+Minimum         19.3300
+Maximum        146.0800
+1. Quartile     61.2800
+3. Quartile     97.3975
+Mean            78.0047
+Median          75.3450
+Sum         361785.7599
+SE Mean          0.3482
+LCL Mean        77.3221
+UCL Mean        78.6873
+Variance       562.3240
+Stdev           23.7134
+Skewness         0.2067
+Kurtosis        -0.7423
+
+Title:
+ Jarque-Bera Normality Test
+
+Test Results:
+  STATISTIC:
+    X-squared: 139.2521
+  P VALUE:
+    Asymptotic p Value: < 0.00000000000000022 
+
+
+Title:
+ Jarque-Bera Normality Test
+
+Test Results:
+  STATISTIC:
+    X-squared: 139.2521
+  P VALUE:
+    Asymptotic p Value: < 0.00000000000000022 
+
+
+	Box-Ljung test
+
+data:  series
+X-squared = 67076, df = 15, p-value <0.0000000000000002
+
+$c
+
+Title:
+ Augmented Dickey-Fuller Test
+
+Test Results:
+  PARAMETER:
+    Lag Order: 6
+  STATISTIC:
+    Dickey-Fuller: -2.1205
+  P VALUE:
+    0.2681 
+
+Description:
+ Fri Mar 20 12:28:56 2026 by user: 
+
+$nc
+
+Title:
+ Augmented Dickey-Fuller Test
+
+Test Results:
+  PARAMETER:
+    Lag Order: 6
+  STATISTIC:
+    Dickey-Fuller: -0.2948
+  P VALUE:
+    0.5224 
+
+Description:
+ Fri Mar 20 12:28:56 2026 by user: 
+
+$ct
+
+Title:
+ Augmented Dickey-Fuller Test
+
+Test Results:
+  PARAMETER:
+    Lag Order: 6
+  STATISTIC:
+    Dickey-Fuller: -2.0995
+  P VALUE:
+    0.5362 
+
+Description:
+ Fri Mar 20 12:28:56 2026 by user: 
+
+$simple
+$simple$t_test
+
+	One Sample t-test
+
+data:  series
+t = 0.29, df = 4636, p-value = 0.8
+alternative hypothesis: true mean is not equal to 0
+95 percent confidence interval:
+ -0.04121  0.05541
+sample estimates:
+mean of x 
+ 0.007097 
+
+
+$simple$jb_test
+
+Title:
+ Jarque-Bera Normality Test
+
+Test Results:
+  STATISTIC:
+    X-squared: 8494.3511
+  P VALUE:
+    Asymptotic p Value: < 0.00000000000000022 
+
+
+$simple$ljung_box
+
+	Box-Ljung test
+
+data:  series
+X-squared = 55, df = 15, p-value = 0.000002
+
+
+$simple$arch_test
+
+	ARCH LM-test; Null hypothesis: no ARCH effects
+
+data:  series
+Chi-squared = 537, df = 15, p-value <0.0000000000000002
+
+
+
+$log
+$log$t_test
+
+	One Sample t-test
+
+data:  series
+t = 0.22, df = 4636, p-value = 0.8
+alternative hypothesis: true mean is not equal to 0
+95 percent confidence interval:
+ -0.0006054  0.0007611
+sample estimates:
+ mean of x 
+0.00007781 
+
+
+$log$jb_test
+
+Title:
+ Jarque-Bera Normality Test
+
+Test Results:
+  STATISTIC:
+    X-squared: 30535.2715
+  P VALUE:
+    Asymptotic p Value: < 0.00000000000000022 
+
+
+$log$ljung_box
+
+	Box-Ljung test
+
+data:  series
+X-squared = 50, df = 15, p-value = 0.00001
+
+
+$log$arch_test
+
+	ARCH LM-test; Null hypothesis: no ARCH effects
+
+data:  series
+Chi-squared = 590, df = 15, p-value <0.0000000000000002
+
+
+
+[1] 15
+[1] 15
+Series: ritorni 
+ARIMA(5,0,0) with zero mean 
+
+Coefficients:
+         ar1     ar2     ar3    ar4     ar5
+      -0.017  -0.033  -0.005  0.057  -0.038
+s.e.   0.015   0.015   0.015  0.015   0.015
+
+sigma^2 = 2.8:  log likelihood = -8965
+AIC=17941   AICc=17941   BIC=17980
+Series: ritorni_log 
+ARIMA(0,0,0) with zero mean 
+
+sigma^2 = 0.000563:  log likelihood = 10767
+AIC=-21533   AICc=-21533   BIC=-21526
+       2.5 %    97.5 %
+ar1 -0.04620  0.011367
+ar2 -0.06139 -0.003836
+ar3 -0.03389  0.023635
+ar4  0.02788  0.085402
+ar5 -0.06717 -0.009530
+ar6 -0.04241  0.015409
+       2.5 %   97.5 %
+ar1      NaN      NaN
+ar2 -0.02417 0.027977
+ar3 -0.02667 0.030831
+ar4  0.01110 0.068497
+ar5      NaN      NaN
+ar6 -0.05120 0.001792
+ma1      NaN      NaN
+$simple
+$simple$jb
+
+Title:
+ Jarque-Bera Normality Test
+
+Test Results:
+  STATISTIC:
+    X-squared: 7320.3343
+  P VALUE:
+    Asymptotic p Value: < 0.00000000000000022 
+
+
+$simple$ljung
+
+	Box-Pierce test
+
+data:  res_simple
+X-squared = 24, df = 15, p-value = 0.07
+
+
+$simple$adf
+
+Title:
+ Augmented Dickey-Fuller Test
+
+Test Results:
+  PARAMETER:
+    Lag Order: 6
+  STATISTIC:
+    Dickey-Fuller: -26.1602
+  P VALUE:
+    0.01 
+
+Description:
+ Fri Mar 20 12:29:00 2026 by user: 
+
+$simple$arch
+
+	Engle's LM ARCH Test
+
+data:  as.vector(res_simple)
+statistic = 531, lag = 15, p-value <0.0000000000000002
+alternative hypothesis: ARCH effects of order 15 are present
+
+
+
+$log
+$log$jb
+
+Title:
+ Jarque-Bera Normality Test
+
+Test Results:
+  STATISTIC:
+    X-squared: 31285.951
+  P VALUE:
+    Asymptotic p Value: < 0.00000000000000022 
+
+
+$log$ljung
+
+	Box-Pierce test
+
+data:  res_log
+X-squared = 42, df = 15, p-value = 0.0002
+
+
+$log$adf
+
+Title:
+ Augmented Dickey-Fuller Test
+
+Test Results:
+  PARAMETER:
+    Lag Order: 6
+  STATISTIC:
+    Dickey-Fuller: -25.9196
+  P VALUE:
+    0.01 
+
+Description:
+ Fri Mar 20 12:29:00 2026 by user: 
+
+$log$arch
+
+	Engle's LM ARCH Test
+
+data:  as.vector(res_log)
+statistic = 583, lag = 15, p-value <0.0000000000000002
+alternative hypothesis: ARCH effects of order 15 are present
+
+
+
+$simple
+$simple$abs_ljung
+
+	Box-Ljung test
+
+data:  abs(series)
+X-squared = 2440, df = 15, p-value <0.0000000000000002
+
+
+$simple$sq_ljung
+
+	Box-Ljung test
+
+data:  series^2
+X-squared = 1463, df = 15, p-value <0.0000000000000002
+
+
+$simple$f_dma_arch
+
+	Engle's LM ARCH Test
+
+data:  series
+statistic = 536, lag = 15, p-value <0.0000000000000002
+alternative hypothesis: ARCH effects of order 15 are present
+
+
+$simple$variance_order
+[1] 10
+
+
+$log
+$log$abs_ljung
+
+	Box-Ljung test
+
+data:  abs(series)
+X-squared = 3244, df = 15, p-value <0.0000000000000002
+
+
+$log$sq_ljung
+
+	Box-Ljung test
+
+data:  series^2
+X-squared = 1445, df = 15, p-value <0.0000000000000002
+
+
+$log$f_dma_arch
+
+	Engle's LM ARCH Test
+
+data:  series
+statistic = 590, lag = 15, p-value <0.0000000000000002
+alternative hypothesis: ARCH effects of order 15 are present
+
+
+$log$variance_order
+[1] 12
+
+
+      [,1]   [,2]
+[1,] 17942 -21531
+      [,1]   [,2]
+[1,] 17988 -21479
+   BIC    BIC 
+-4.936 -4.966 
+$arch
+   AIC    BIC    SIC   HQIC 
+-22999 -22890 -22999 -22961 
+
+$garch
+   AIC    BIC    SIC   HQIC 
+-23093 -23028 -23093 -23070 
+
+$jb
+
+Title:
+ Jarque-Bera Normality Test
+
+Test Results:
+  STATISTIC:
+    X-squared: 2383.6076
+  P VALUE:
+    Asymptotic p Value: < 0.00000000000000022 
+
+
+$ljung
+
+	Box-Ljung test
+
+data:  std_res_garch
+X-squared = 7.4, df = 8, p-value = 0.5
+
+
+$ljung_sq
+
+	Box-Ljung test
+
+data:  std_res_garch^2
+X-squared = 17, df = 15, p-value = 0.3
+
+
+$arch
+
+	Engle's LM ARCH Test
+
+data:  std_res_garch
+statistic = 16, lag = 15, p-value = 0.4
+alternative hypothesis: ARCH effects of order 15 are present
+
+
+$garchfit_1step
+  meanForecast meanError standardDeviation
+1    -0.002219    0.0465            0.0465
+
+$garch_1step_mean
+[1] -0.002219
+
+$garch_1step_sigma
+[1] 0.0465
+
+$price_forecast
+[1] 108.5
+
+$garch_4step_mean
+[1] -0.0022191  0.0007854  0.0001841 -0.0001891
+
+$garch_4step_sigma
+[1] 0.04650 0.04632 0.04615 0.04597
+
+                ar1       ar2       ar3       ar4       ar5       ar6 
+ 1.000000  0.017417  0.032614  0.005126 -0.056639  0.038349  0.013499 
+[1]  1.647+0.947i -0.201+1.667i -0.201-1.667i  1.647-0.947i -1.898-0.000i
+[6] -3.835+0.000i
