@@ -3,6 +3,7 @@
 - Il file da usare è `starting.R`, gli altri sono old.
 - gli output prodotti sono suddivisi in:
     * `data`: directory contenente le serie storiche scaricate e usate nelle varie esecuzioni
+    * `logs`: directory contenente i log testuali prodotti nelle varie esecuzioni (console output)
     * `plots`: directory contenente i plot prodotti nelle varie esecuzioni
 
 [shared folder](https://mega.nz/folder/47kCnTKT#Arro1QyfF-PMpG7MIzbr2w)
